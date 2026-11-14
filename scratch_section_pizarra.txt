@@ -1,0 +1,149 @@
+id="ejercicios-pizarra" class="section-content active">
+    <div class="card">
+      <div class="header-top-actions">
+        <h2 class="card-title" style="margin-bottom: 0;">📋 Ejercicios Resueltos de la Pizarra de Hoy (INF110-Z2)</h2>
+        <span class="badge" style="background: rgba(245, 158, 11, 0.15); color: #f59e0b; border-color: rgba(245, 158, 11, 0.3);">📅 Clase Presencial: Tarea Plataforma 17:00</span>
+      </div>
+      <p style="margin: 1rem 0; font-size: 1.05rem;">
+        Resolución detallada, algoritmos en Pascal/Delphi y pruebas de escritorio de los <strong>4 ejercicios explicados hoy en la pizarra</strong> por la docente:
+      </p>
+
+      <!-- EJERCICIO 4 -->
+      <div class="tag-card emerald" style="margin-bottom: 1.5rem;">
+        <h3 style="color: #fff; margin-bottom: 0.5rem;">④ Sumar dígitos primos</h3>
+        <p style="color: #cbd5e1; margin-bottom: 0.75rem;">
+          <strong>Ejemplo de la pizarra:</strong> <code>N = 12593</code> &nbsp;|&nbsp; <strong>Resultado:</strong> <code>10</code> (primos: 3, 5, 2 &rarr; 3 + 5 + 2 = 10).
+        </p>
+        <div style="background: rgba(0,0,0,0.3); padding: 0.75rem 1rem; border-radius: 6px; font-size: 0.9rem; color: #94a3b8; margin-bottom: 0.75rem;">
+          📌 <strong>Fundamento Matemático de la Pizarra:</strong><br>
+          • Un número primo es divisible únicamente entre sí mismo y la unidad.<br>
+          • En el sistema decimal, los únicos dígitos (0 al 9) primos son: <strong style="color: #38bdf8;">[ 2, 3, 5, 7 ]</strong>.<br>
+          • El <code>9</code> NO es primo porque es divisible entre 3 (9 mod 3 = 0). El <code>1</code> NO es primo por definición.
+        </div>
+        
+        <div class="code-wrapper">
+          <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+          <div class="code-block">
+<span class="comment">// Función auxiliar: Determina si un dígito (0..9) es primo</span><br>
+<span class="keyword">function</span> <span class="function-name">EsPrimo</span>(d: <span class="type">byte</span>): <span class="type">boolean</span>;<br>
+<span class="keyword">begin</span><br>
+&nbsp;&nbsp;EsPrimo := (d = <span class="number">2</span>) <span class="keyword">or</span> (d = <span class="number">3</span>) <span class="keyword">or</span> (d = <span class="number">5</span>) <span class="keyword">or</span> (d = <span class="number">7</span>);<br>
+<span class="keyword">end</span>;<br><br>
+<span class="comment">// Función principal: Sumar dígitos primos</span><br>
+<span class="keyword">function</span> <span class="function-name">SumarDigitosPrimos</span>(n: <span class="type">word</span>): <span class="type">word</span>;<br>
+<span class="keyword">var</span><br>
+&nbsp;&nbsp;d, suma: <span class="type">word</span>;<br>
+<span class="keyword">begin</span><br>
+&nbsp;&nbsp;suma := <span class="number">0</span>;<br>
+&nbsp;&nbsp;<span class="keyword">while</span> n &gt; <span class="number">0</span> <span class="keyword">do</span><br>
+&nbsp;&nbsp;<span class="keyword">begin</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;d := n <span class="keyword">mod</span> <span class="number">10</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> <span class="function-name">EsPrimo</span>(d) <span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;suma := suma + d;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;n := n <span class="keyword">div</span> <span class="number">10</span>;<br>
+&nbsp;&nbsp;<span class="keyword">end</span>;<br>
+&nbsp;&nbsp;<span class="function-name">Result</span> := suma;<br>
+<span class="keyword">end</span>;
+          </div>
+        </div>
+      </div>
+
+      <!-- EJERCICIO 5 -->
+      <div class="tag-card purple" style="margin-bottom: 1.5rem;">
+        <h3 style="color: #fff; margin-bottom: 0.5rem;">⑤ Mostrar en otro número solo pares</h3>
+        <p style="color: #cbd5e1; margin-bottom: 0.75rem;">
+          <strong>Ejemplo de la pizarra:</strong> <code>N = 1234</code> &nbsp;|&nbsp; <strong>Resultado:</strong> <code>NPar = 24</code>
+        </p>
+        <div style="background: rgba(0,0,0,0.3); padding: 0.75rem 1rem; border-radius: 6px; font-size: 0.9rem; color: #94a3b8; margin-bottom: 0.75rem;">
+          📌 <strong>Lógica de Reconstrucción:</strong><br>
+          Se extraen los dígitos con <code>mod 10</code>. Para mantener el orden original de izquierda a derecha, cada dígito par se multiplica por una potencia de 10: <code>NPar := NPar + (d * pot); pot := pot * 10;</code>.
+        </div>
+        
+        <div class="code-wrapper">
+          <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+          <div class="code-block">
+<span class="keyword">function</span> <span class="function-name">FormarSoloPares</span>(n: <span class="type">word</span>): <span class="type">word</span>;<br>
+<span class="keyword">var</span><br>
+&nbsp;&nbsp;d, npar, pot: <span class="type">word</span>;<br>
+<span class="keyword">begin</span><br>
+&nbsp;&nbsp;npar := <span class="number">0</span>;<br>
+&nbsp;&nbsp;pot := <span class="number">1</span>;<br>
+&nbsp;&nbsp;<span class="keyword">while</span> n &gt; <span class="number">0</span> <span class="keyword">do</span><br>
+&nbsp;&nbsp;<span class="keyword">begin</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;d := n <span class="keyword">mod</span> <span class="number">10</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> d <span class="keyword">mod</span> <span class="number">2</span> = <span class="number">0</span> <span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">begin</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;npar := npar + (d * pot);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pot := pot * <span class="number">10</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;n := n <span class="keyword">div</span> <span class="number">10</span>;<br>
+&nbsp;&nbsp;<span class="keyword">end</span>;<br>
+&nbsp;&nbsp;<span class="function-name">Result</span> := npar;<br>
+<span class="keyword">end</span>;
+          </div>
+        </div>
+      </div>
+
+      <!-- EJERCICIO 6 -->
+      <div class="tag-card amber" style="margin-bottom: 1.5rem;">
+        <h3 style="color: #fff; margin-bottom: 0.5rem;">⑥ Sumar los dígitos que son múltiplos de 3</h3>
+        <p style="color: #cbd5e1; margin-bottom: 0.75rem;">
+          <strong>Ejemplo de la pizarra:</strong> <code>N = 31695</code> &nbsp;|&nbsp; <strong>Resultado:</strong> <code>SM3 = 3 + 6 + 9 + 0 = 18</code> (ó 3 + 6 + 9 = 18).
+        </p>
+        <div style="background: rgba(0,0,0,0.3); padding: 0.75rem 1rem; border-radius: 6px; font-size: 0.9rem; color: #94a3b8; margin-bottom: 0.75rem;">
+          📌 <strong>Condición:</strong> <code>(d mod 3 = 0)</code>. Para <code>31695</code>: 5 no es múltiplo de 3, 9 sí, 6 sí, 1 no, 3 sí &rarr; 9 + 6 + 3 = 18.
+        </div>
+        
+        <div class="code-wrapper">
+          <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+          <div class="code-block">
+<span class="keyword">function</span> <span class="function-name">SumarMultiplosDe3</span>(n: <span class="type">word</span>): <span class="type">word</span>;<br>
+<span class="keyword">var</span><br>
+&nbsp;&nbsp;d, suma: <span class="type">word</span>;<br>
+<span class="keyword">begin</span><br>
+&nbsp;&nbsp;suma := <span class="number">0</span>;<br>
+&nbsp;&nbsp;<span class="keyword">while</span> n &gt; <span class="number">0</span> <span class="keyword">do</span><br>
+&nbsp;&nbsp;<span class="keyword">begin</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;d := n <span class="keyword">mod</span> <span class="number">10</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> d <span class="keyword">mod</span> <span class="number">3</span> = <span class="number">0</span> <span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;suma := suma + d;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;n := n <span class="keyword">div</span> <span class="number">10</span>;<br>
+&nbsp;&nbsp;<span class="keyword">end</span>;<br>
+&nbsp;&nbsp;<span class="function-name">Result</span> := suma;<br>
+<span class="keyword">end</span>;
+          </div>
+        </div>
+      </div>
+
+      <!-- EJERCICIO 7 -->
+      <div class="tag-card rose" style="margin-bottom: 1.5rem;">
+        <h3 style="color: #fff; margin-bottom: 0.5rem;">⑦ Invertir dígitos de un número</h3>
+        <p style="color: #cbd5e1; margin-bottom: 0.75rem;">
+          <strong>Ejemplo de la pizarra:</strong> <code>N = 125</code> &nbsp;|&nbsp; <strong>Resultado:</strong> <code>Inv = 521</code>
+        </p>
+        <div style="background: rgba(0,0,0,0.3); padding: 0.75rem 1rem; border-radius: 6px; font-size: 0.9rem; color: #94a3b8; margin-bottom: 0.75rem;">
+          📌 <strong>Fórmula del Acumulador Multiplicativo:</strong><br>
+          <code>inv := (inv * 10) + d;</code> &nbsp;&mdash;&nbsp; Desplaza los dígitos hacia la izquierda multiplicando por 10 y suma el nuevo residuo.
+        </div>
+        
+        <div class="code-wrapper">
+          <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+          <div class="code-block">
+<span class="keyword">function</span> <span class="function-name">InvertirNumero</span>(n: <span class="type">word</span>): <span class="type">word</span>;<br>
+<span class="keyword">var</span><br>
+&nbsp;&nbsp;d, inv: <span class="type">word</span>;<br>
+<span class="keyword">begin</span><br>
+&nbsp;&nbsp;inv := <span class="number">0</span>;<br>
+&nbsp;&nbsp;<span class="keyword">while</span> n &gt; <span class="number">0</span> <span class="keyword">do</span><br>
+&nbsp;&nbsp;<span class="keyword">begin</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;d := n <span class="keyword">mod</span> <span class="number">10</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;inv := (inv * <span class="number">10</span>) + d;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;n := n <span class="keyword">div</span> <span class="number">10</span>;<br>
+&nbsp;&nbsp;<span class="keyword">end</span>;<br>
+&nbsp;&nbsp;<span class="function-name">Result</span> := inv;<br>
+<span class="keyword">end</span>;
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

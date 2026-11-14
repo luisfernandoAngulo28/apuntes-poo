@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Acordeón Oficial de Examen - 2do Parcial INF110-Z2 (Ing. Angélica Garzón)</title>
+  <style>
+    @page {
+      size: letter;
+      margin: 10mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 12px;
+      color: #0f172a;
+      background: #f1f5f9;
+      font-size: 11px;
+      line-height: 1.35;
+    }
+    .no-print {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1e293b;
+      color: #fff;
+      padding: 12px 18px;
+      border-radius: 10px;
+      margin-bottom: 14px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+    }
+    .btn-print {
+      background: #10b981;
+      color: #fff;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-weight: 800;
+      cursor: pointer;
+      font-size: 13px;
+      transition: background 0.2s;
+    }
+    .btn-print:active {
+      background: #059669;
+    }
+    .header-box {
+      border: 2px solid #1e3a8a;
+      background: #eff6ff;
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .title {
+      font-size: 14px;
+      font-weight: 900;
+      color: #1e3a8a;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    .subtitle {
+      font-size: 11px;
+      color: #475569;
+      margin: 3px 0 0 0;
+    }
+    .badge {
+      background: #1e3a8a;
+      color: #fff;
+      padding: 4px 9px;
+      border-radius: 5px;
+      font-size: 10.5px;
+      font-weight: 800;
+      display: inline-block;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .card {
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 9px 11px;
+      margin-bottom: 8px;
+      page-break-inside: avoid;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+    .card-title {
+      font-size: 11.5px;
+      font-weight: 800;
+      color: #1e3a8a;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 4px;
+      margin-bottom: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    code, pre {
+      font-family: 'Consolas', 'Courier New', monospace;
+      font-size: 10px;
+    }
+    pre {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 5px;
+      padding: 6px 8px;
+      margin: 4px 0;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      line-height: 1.3;
+      color: #0f172a;
+    }
+    .kw { color: #0284c7; font-weight: 700; }
+    .fn { color: #7c3aed; font-weight: 700; }
+    .str { color: #16a34a; }
+    .com { color: #64748b; font-style: italic; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 10px;
+      margin: 4px 0;
+    }
+    th, td {
+      border: 1px solid #cbd5e1;
+      padding: 4px 6px;
+      text-align: left;
+    }
+    th {
+      background: #f1f5f9;
+      color: #1e293b;
+      font-weight: 700;
+    }
+    .alert-box {
+      background: #fffbeb;
+      border-left: 3px solid #f59e0b;
+      padding: 6px 9px;
+      margin: 5px 0;
+      font-size: 10.5px;
+      color: #92400e;
+      border-radius: 0 4px 4px 0;
+    }
+
+    /* ======================================================================= */
+    /* RESPONSIVE MÓVIL: CELULARES Y TABLETS (PANTALLA)                         */
+    /* ======================================================================= */
+    @media screen and (max-width: 768px) {
+      body {
+        padding: 8px;
+        font-size: 13.5px;
+        line-height: 1.5;
+        background: #0f172a;
+        color: #f8fafc;
+      }
+      .no-print {
+        flex-direction: column;
+        gap: 10px;
+        align-items: stretch;
+        padding: 12px 14px;
+        background: #1e293b;
+        border: 1px solid #334155;
+      }
+      .btn-print {
+        width: 100%;
+        padding: 12px;
+        font-size: 15px;
+        border-radius: 8px;
+      }
+      .header-box {
+        flex-direction: column;
+        align-items: flex-start;
+        background: #1e293b;
+        border-color: #3b82f6;
+        padding: 12px;
+      }
+      .title {
+        font-size: 14.5px;
+        color: #60a5fa;
+      }
+      .subtitle {
+        font-size: 12px;
+        color: #cbd5e1;
+      }
+      .grid-2 {
+        grid-template-columns: 1fr !important;
+        gap: 12px;
+      }
+      .card {
+        padding: 12px 14px;
+        margin-bottom: 12px;
+        border-radius: 10px;
+        background: #1e293b;
+        border-color: #334155;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      }
+      .card-title {
+        font-size: 13.5px;
+        color: #38bdf8;
+        border-bottom-color: #334155;
+        padding-bottom: 6px;
+      }
+      code, pre {
+        font-size: 12px;
+      }
+      pre {
+        padding: 10px 12px;
+        background: #090d16;
+        border-color: #1e293b;
+        color: #f1f5f9;
+        margin: 6px 0;
+      }
+      table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        font-size: 12px;
+        width: 100%;
+      }
+      th {
+        background: #090d16;
+        color: #38bdf8;
+        border-color: #334155;
+      }
+      td {
+        border-color: #334155;
+        color: #cbd5e1;
+      }
+      .alert-box {
+        background: rgba(245, 158, 11, 0.15);
+        color: #fde68a;
+        border-left-color: #f59e0b;
+        font-size: 12.5px;
+        padding: 8px 10px;
+      }
+      .page-break {
+        margin: 18px 0;
+        border-top: 2px dashed #475569;
+      }
+    }
+
+    /* ======================================================================= */
+    /* FORMATO DE IMPRESIÓN OFICIAL (2 PÁGINAS CARTA PARA PAPEL / PDF)         */
+    /* ======================================================================= */
+    @media print {
+      body {
+        background: #fff !important;
+        color: #0f172a !important;
+        padding: 0 !important;
+        font-size: 11px !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .header-box {
+        background: #eff6ff !important;
+        border-color: #1e3a8a !important;
+      }
+      .title {
+        color: #1e3a8a !important;
+      }
+      .subtitle {
+        color: #475569 !important;
+      }
+      .grid-2 {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 10px !important;
+      }
+      .card {
+        background: #fff !important;
+        border-color: #cbd5e1 !important;
+        box-shadow: none !important;
+        padding: 8px 10px !important;
+      }
+      .card-title {
+        color: #1e3a8a !important;
+        border-bottom-color: #e2e8f0 !important;
+      }
+      pre {
+        background: #f8fafc !important;
+        border-color: #e2e8f0 !important;
+        color: #0f172a !important;
+        font-size: 9.8px !important;
+      }
+      table {
+        display: table !important;
+        font-size: 9.5px !important;
+      }
+      th {
+        background: #f1f5f9 !important;
+        color: #1e293b !important;
+        border-color: #cbd5e1 !important;
+      }
+      td {
+        border-color: #cbd5e1 !important;
+        color: #0f172a !important;
+      }
+      .alert-box {
+        background: #fffbeb !important;
+        color: #92400e !important;
+      }
+      .page-break {
+        page-break-after: always;
+        border: none !important;
+        margin: 0 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRA DE ACCIÓN NO IMPRIMIBLE -->
+  <div class="no-print">
+    <div>
+      <span style="font-size: 16px; font-weight: 800;">📄 Acordeón Oficial de Estudio (INF110-Z2)</span>
+      <div style="font-size: 12px; color: #94a3b8;">M.Sc. Ing. Angélica Garzón • Adaptado para ver en tu celular o imprimir en 2 páginas carta / PDF.</div>
+    </div>
+    <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+      <a href="teoria_programacion_modular.html#banco-modelos-segundo-parcial" style="text-decoration:none; background:#334155; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700; font-size:13px; display:inline-flex; align-items:center; gap:6px; border:1px solid #475569;">
+        ⬅ Volver al Portal de Estudio
+      </a>
+      <button class="btn-print" onclick="window.print()">🖨️ Imprimir / Guardar en PDF</button>
+    </div>
+  </div>
+
+  <!-- ==================== PÁGINA 1 ==================== -->
+  <div class="header-box">
+    <div>
+      <h1 class="title">UAGRM • INF110 Grupo Z2 • 2do Examen Parcial (6 de Noviembre)</h1>
+      <div class="subtitle">Docente: M.Sc. Ing. Angélica Garzón C. • <strong>Hoja de Fórmulas, Algoritmos y Delphi Modular</strong></div>
+    </div>
+    <div style="text-align: right;">
+      <span class="badge">NOTA: 100/100</span>
+      <div style="font-size: 9.5px; color: #64748b; margin-top: 2px;">Series • Naturales • Cadenas • Burbuja</div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <!-- COLUMNA 1: ARQUITECTURA DELPHI Y BOTONES -->
+    <div>
+      
+      <!-- CARD 1: ESTRUCTURA OFICIAL EN EL EXAMEN -->
+      <div class="card">
+        <div class="card-title">1. Estructura Oficial de un Examen en Delphi</div>
+        <pre><span class="kw">unit</span> UnitExamen;
+<span class="kw">interface</span>
+<span class="kw">uses</span> Winapi.Windows, System.SysUtils, Vcl.Forms, Vcl.StdCtrls;
+<span class="kw">type</span>
+  TForm1 = <span class="kw">class</span>(TForm)
+    Edit1, Edit2, Edit3: TEdit;
+    Button1, Button2: TButton;
+    <span class="kw">procedure</span> Button1Click(Sender: TObject);
+  <span class="kw">end</span>;
+<span class="kw">var</span> Form1: TForm1;
+<span class="kw">implementation</span>
+<span class="com">// AQUÍ SE ESCRIBEN LAS FUNCIONES MODULARES</span>
+<span class="kw">function</span> MiModulo(n: Integer): Real; ...
+<span class="com">// AQUÍ SE ESCRIBEN LOS BOTONES CLICK</span>
+<span class="kw">procedure</span> TForm1.Button1Click(Sender: TObject); ...
+<span class="kw">end</span>.</pre>
+      </div>
+
+      <!-- CARD 2: CÓMO SE PROGRAMAN LOS BOTONES (3 PASOS DE ORO) -->
+      <div class="card">
+        <div class="card-title">2. Los 3 Pasos de Oro en el Evento del Botón</div>
+        <div class="alert-box">
+          <strong>⚠️ TRAMPA DE EXAMEN:</strong> NUNCA uses <code>Edit1.Text</code> dentro de la función. La función debe ser pura y el botón es el único que interactúa con la pantalla.
+        </div>
+        <pre><span class="kw">procedure</span> TForm1.ButtonSerieClick(Sender: TObject);
+<span class="kw">var</span> n: Integer; suma: Real;
+<span class="kw">begin</span>
+  <span class="com">// 1. ENTRADA: Leer y convertir</span>
+  n := StrToInt(Edit1.Text);
+  <span class="com">// 2. PROCESO: Llamada modular pura</span>
+  suma := SumaSerie_2024(n);
+  <span class="com">// 3. SALIDA: Mostrar con formato</span>
+  Edit2.Text := FloatToStrF(suma, ffFixed, 8, 2);
+<span class="kw">end</span>;</pre>
+      </div>
+
+      <!-- CARD 3: PROCEDIMIENTO CON PARÁMETROS VAR -->
+      <div class="card">
+        <div class="card-title">3. Procedimiento con Parámetros VAR (Dos Salidas)</div>
+        <div style="font-size: 10px; color: #475569; margin-bottom: 2px;">
+          Un <code>procedure</code> NO retorna con <code>Result</code>. Se llama sin <code>:=</code> y modifica las variables receptoras:
+        </div>
+        <pre><span class="com">// En el botón:</span>
+<span class="kw">procedure</span> TForm1.ButtonPromClick(Sender: TObject);
+<span class="kw">var</span> n: LongWord; pPar, pImp: Real;
+<span class="kw">begin</span>
+  n := StrToInt(Edit1.Text);
+  PromediosParImpar(n, pPar, pImp); <span class="com">// llamada directa</span>
+  Edit2.Text := FloatToStrF(pPar, ffFixed, 8, 2);
+  Edit3.Text := FloatToStrF(pImp, ffFixed, 8, 2);
+<span class="kw">end</span>;</pre>
+      </div>
+
+      <!-- CARD 4: TABLA ASCII Y SINTAXIS CLAVE -->
+      <div class="card">
+        <div class="card-title">4. Tabla Rápida: ASCII y Sintaxis Delphi</div>
+        <table>
+          <tr><th>Carácter</th><th>ASCII</th><th>Sintaxis / Conjunto Delphi</th></tr>
+          <tr><td>Espacio ' '</td><td>32</td><td><code>cad[i] = ' '</code> o <code>Ord(cad[i]) = 32</code></td></tr>
+          <tr><td>Dígitos '0'..'9'</td><td>48..57</td><td><code>cad[i] in ['0'..'9']</code></td></tr>
+          <tr><td>Mayúsculas 'A'..'Z'</td><td>65..90</td><td><code>cad[i] in ['A'..'Z']</code></td></tr>
+          <tr><td>Minúsculas 'a'..'z'</td><td>97..122</td><td><code>cad[i] in ['a'..'z']</code></td></tr>
+          <tr><td>Es Vocal</td><td>-</td><td><code>UpCase(c) in ['A','E','I','O','U']</code></td></tr>
+        </table>
+      </div>
+
+    </div>
+
+    <!-- COLUMNA 2: ALGORITMOS CANÓNICOS (SERIES Y NATURALES) -->
+    <div>
+      
+      <!-- CARD 5: ALGORITMO NATURALES (MOD 10 Y DIV 10) -->
+      <div class="card">
+        <div class="card-title">5. Números Naturales: Descomposición y Posición K</div>
+        <div style="font-size: 10px; color: #475569;">
+          <strong>Regla Garzón:</strong> Las posiciones se cuentan desde la <strong>DERECHA</strong> (Pos 1 = unidades, Pos 2 = decenas...).
+        </div>
+        <pre><span class="kw">function</span> EliminarDigitoPosK(n: LongWord; k: Byte): LongWord;
+<span class="kw">var</span> res, pot: LongWord; pos, d: Byte;
+<span class="kw">begin</span>
+  res := 0; pot := 1; pos := 1;
+  <span class="kw">while</span> n &gt; 0 <span class="kw">do begin</span>
+    d := n <span class="kw">mod</span> 10;
+    <span class="kw">if</span> pos &lt;&gt; k <span class="kw">then begin</span>
+      res := res + (d * pot);
+      pot := pot * 10;
+    <span class="kw">end</span>;
+    pos := pos + 1;
+    n := n <span class="kw">div</span> 10;
+  <span class="kw">end</span>;
+  Result := res;
+<span class="kw">end</span>;</pre>
+      </div>
+
+      <!-- CARD 6: SERIES (POTENCIA MANUAL Y DENOMINADOR FIBONACCI) -->
+      <div class="card">
+        <div class="card-title">6. Series Numéricas: Sin Math ni Power</div>
+        <div style="font-size: 10px; color: #475569;">
+          Si el examen dice <em>"No usar potencia"</em>, hazlo con bucle <code>while</code>:
+        </div>
+        <pre><span class="kw">function</span> Potencia(base, exp: Integer): Int64;
+<span class="kw">var</span> p: Int64; c: Integer;
+<span class="kw">begin</span>
+  p := 1; c := 1;
+  <span class="kw">while</span> c &lt;= exp <span class="kw">do begin</span>
+    p := p * base; c := c + 1;
+  <span class="kw">end</span>;
+  Result := p;
+<span class="kw">end</span>;
+
+<span class="com">// Denominador Fibonacci Aditivo (Semillas a=1, b=4 &rarr; 1, 4, 5, 9, 14...)</span>
+<span class="kw">function</span> DenomFib(k: Integer): Int64;
+<span class="kw">var</span> a, b, c: Int64; i: Integer;
+<span class="kw">begin</span>
+  <span class="kw">if</span> k = 1 <span class="kw">then</span> Result := 1
+  <span class="kw">else if</span> k = 2 <span class="kw">then</span> Result := 4
+  <span class="kw">else begin</span>
+    a := 1; b := 4; c := 5; i := 3;
+    <span class="kw">while</span> i &lt;= k <span class="kw">do begin</span>
+      c := a + b; a := b; b := c; i := i + 1;
+    <span class="kw">end</span>;
+    Result := c;
+  <span class="kw">end</span>;
+<span class="kw">end</span>;</pre>
+      </div>
+
+      <!-- CARD 7: FACTORIAL Y FIBONACCI CLÁSICO -->
+      <div class="card">
+        <div class="card-title">7. Factorial y Fibonacci Básico</div>
+        <pre><span class="kw">function</span> Factorial(n: Integer): Int64;
+<span class="kw">var</span> f: Int64; c: Integer;
+<span class="kw">begin</span>
+  f := 1; c := 1;
+  <span class="kw">while</span> c &lt;= n <span class="kw">do begin</span> f := f * c; c := c + 1; <span class="kw">end</span>;
+  Result := f;
+<span class="kw">end</span>;</pre>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- ==================== PÁGINA 2 ==================== -->
+  <div class="header-box" style="margin-top: 10px;">
+    <div>
+      <h1 class="title">UAGRM • INF110 Grupo Z2 • Cadenas, Ordenación y Prueba de Escritorio</h1>
+      <div class="subtitle">Metodología Obligatoria: <code>cad: String; n, i: Byte</code> • 1-Based Indexing • Traza Paso a Paso</div>
+    </div>
+    <div style="text-align: right;">
+      <span class="badge" style="background:#059669;">PÁGINA 2 / 2</span>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <!-- COLUMNA 1: CADENAS Y ORDENACIÓN BURBUJA -->
+    <div>
+      
+      <!-- CARD 8: RECORRIDO DE PALABRAS EN CADENA -->
+      <div class="card">
+        <div class="card-title">8. Metodología Oficial: Recorrido Palabra por Palabra</div>
+        <div style="font-size: 10px; color: #475569;">
+          Usa punteros <code>pIni</code> y <code>pFin</code> para aislar cada palabra sin perder espacios:
+        </div>
+        <pre><span class="kw">function</span> MayusculasSiIniciaVocal(cad: String): String;
+<span class="kw">var</span> n, i, pIni, pFin: Byte; pal, res: String;
+<span class="kw">begin</span>
+  n := Length(cad); res := <span class="str">''</span>; i := 1;
+  <span class="kw">while</span> i &lt;= n <span class="kw">do begin</span>
+    <span class="kw">if</span> cad[i] = <span class="str">' '</span> <span class="kw">then begin</span>
+      res := res + <span class="str">' '</span>; i := i + 1;
+    <span class="kw">end else begin</span>
+      pIni := i;
+      <span class="kw">while</span> (i &lt;= n) <span class="kw">and</span> (cad[i] &lt;&gt; <span class="str">' '</span>) <span class="kw">do</span> i := i + 1;
+      pFin := i - 1;
+      pal := Copy(cad, pIni, pFin - pIni + 1);
+      <span class="com">// Condición del examen: si inicia con vocal:</span>
+      <span class="kw">if</span> (Length(pal) &gt; 0) <span class="kw">and</span> EsVocal(pal[1]) <span class="kw">then</span>
+        pal := UpperCase(pal);
+      res := res + pal;
+    <span class="kw">end</span>;
+  <span class="kw">end</span>;
+  Result := res;
+<span class="kw">end</span>;</pre>
+      </div>
+
+      <!-- CARD 9: ORDENACIÓN BURBUJA DE PIZARRA (OCTUBRE) -->
+      <div class="card">
+        <div class="card-title">9. Ordenación Burbuja en Cadenas (Pizarra Docente)</div>
+        <div style="font-size: 10px; color: #475569;">
+          Doble bucle: <code>I</code> desde <code>1</code> hasta <code>N-1</code>, <code>J</code> desde <code>I+1</code> hasta <code>N</code>:
+        </div>
+        <pre><span class="kw">function</span> OrdenarBurbujaAsc(pal: String): String;
+<span class="kw">var</span> n, i, j: Byte; aux: Char;
+<span class="kw">begin</span>
+  n := Length(pal); i := 1;
+  <span class="kw">while</span> i &lt;= n - 1 <span class="kw">do begin</span>
+    j := i + 1;
+    <span class="kw">while</span> j &lt;= n <span class="kw">do begin</span>
+      <span class="kw">if</span> pal[i] &gt; pal[j] <span class="kw">then begin</span>
+        aux := pal[i];
+        pal[i] := pal[j];
+        pal[j] := aux;
+      <span class="kw">end</span>;
+      j := j + 1;
+    <span class="kw">end</span>;
+    i := i + 1;
+  end;
+  Result := pal;
+<span class="kw">end</span>;</pre>
+      </div>
+
+      <!-- CARD 10: INVERTIR ÚLTIMA PALABRA -->
+      <div class="card">
+        <div class="card-title">10. Invertir Última Palabra (Examen 2024-1 Z2)</div>
+        <pre><span class="kw">function</span> InvertirUltimaPalabra(cad: String): String;
+<span class="kw">var</span> n, i, finPal, iniPal, k: Byte; palInv: String;
+<span class="kw">begin</span>
+  n := Length(cad); i := n;
+  <span class="kw">while</span> (i &gt;= 1) <span class="kw">and</span> (cad[i] = <span class="str">' '</span>) <span class="kw">do</span> i := i - 1;
+  finPal := i;
+  <span class="kw">while</span> (i &gt;= 1) <span class="kw">and</span> (cad[i] &lt;&gt; <span class="str">' '</span>) <span class="kw">do</span> i := i - 1;
+  iniPal := i + 1;
+  palInv := <span class="str">''</span>; k := finPal;
+  <span class="kw">while</span> k &gt;= iniPal <span class="kw">do begin</span>
+    palInv := palInv + cad[k]; k := k - 1;
+  <span class="kw">end</span>;
+  Result := Copy(cad, 1, iniPal - 1) + palInv + Copy(cad, finPal + 1, n - finPal);
+<span class="kw">end</span>;</pre>
+      </div>
+
+    </div>
+
+    <!-- COLUMNA 2: PRUEBA DE ESCRITORIO Y TRAMPAS -->
+    <div>
+      
+      <!-- CARD 11: MODELO OFICIAL DE PRUEBA DE ESCRITORIO -->
+      <div class="card">
+        <div class="card-title">11. Prueba de Escritorio Oficial (Traza para Examen)</div>
+        <div style="font-size: 10px; color: #475569; margin-bottom: 3px;">
+          Ejemplo: Serie <code>S = 1^1/1 + 2^2/4 + 3^3/5 + 4^4/9</code> para <code>N = 4</code>:
+        </div>
+        <table>
+          <tr><th>Paso</th><th>i</th><th>i &le; N</th><th>Num (i^i)</th><th>Den (D_i)</th><th>Término</th><th>Suma (S)</th></tr>
+          <tr><td>Init</td><td>1</td><td>-</td><td>-</td><td>-</td><td>-</td><td>0.00</td></tr>
+          <tr><td>1</td><td>1</td><td>V</td><td>1</td><td>1</td><td>1.00</td><td>1.00</td></tr>
+          <tr><td>2</td><td>2</td><td>V</td><td>4</td><td>4</td><td>1.00</td><td>2.00</td></tr>
+          <tr><td>3</td><td>3</td><td>V</td><td>27</td><td>5</td><td>5.40</td><td>7.40</td></tr>
+          <tr><td>4</td><td>4</td><td>V</td><td>256</td><td>9</td><td>28.44</td><td><strong>35.84</strong></td></tr>
+          <tr><td>Fin</td><td>5</td><td>F</td><td>-</td><td>-</td><td>-</td><td><strong>Result = 35.84</strong></td></tr>
+        </table>
+        <div style="font-size: 9.5px; color: #64748b; margin-top: 3px;">
+          * Recuerda poner la última fila donde la condición se hace <strong>Falsa (F)</strong> y mostrar el valor de <code>Result</code>.
+        </div>
+      </div>
+
+      <!-- CARD 12: ELIMINAR CONSONANTES -->
+      <div class="card">
+        <div class="card-title">12. Eliminar Consonantes (Examen 2024-1 Z2)</div>
+        <pre><span class="kw">function</span> EliminarConsonantes(cad: String): String;
+<span class="kw">var</span> res: String; i, n: Byte;
+<span class="kw">begin</span>
+  res := <span class="str">''</span>; n := Length(cad); i := 1;
+  <span class="kw">while</span> i &lt;= n <span class="kw">do begin</span>
+    <span class="com">// Conserva vocales, espacios y puntuación</span>
+    <span class="kw">if</span> EsVocal(cad[i]) <span class="kw">or not</span> (UpCase(cad[i]) <span class="kw">in</span> [<span class="str">'A'</span>..<span class="str">'Z'</span>]) <span class="kw">then</span>
+      res := res + cad[i];
+    i := i + 1;
+  <span class="kw">end</span>;
+  Result := res;
+<span class="kw">end</span>;</pre>
+      </div>
+
+      <!-- CARD 13: LAS 5 TRAMPAS DE EXAMEN -->
+      <div class="card" style="border: 2px solid #ef4444; background: #fff5f5;">
+        <div class="card-title" style="color: #b91c1c;">13. ⚠️ Las 5 Trampas que Quitan Puntos en el Examen</div>
+        <ol style="margin: 0; padding-left: 16px; font-size: 10px; color: #7f1d1d; line-height: 1.45;">
+          <li><strong>No inicializar acumuladores:</strong> Si no pones <code>suma := 0;</code> o <code>res := '';</code> tu código acumula basura de memoria.</li>
+          <li><strong>Bucle infinito en while:</strong> Olvidar <code>i := i + 1;</code> o <code>n := n div 10;</code> cuelga el programa.</li>
+          <li><strong>Confundir función y procedimiento:</strong> La función usa <code>Result := ...;</code>. El procedimiento usa parámetros <code>var</code> y NO lleva <code>Result</code>.</li>
+          <li><strong>Posición K al revés:</strong> Recuerda que en números naturales, las unidades son la posición 1 (desde la derecha).</li>
+          <li><strong>Olvidar la fila final en la traza:</strong> La fila donde <code>i &gt; n</code> (condición Falsa) es obligatoria para la docente.</li>
+        </ol>
+      </div>
+
+    </div>
+  </div>
+
+  <div style="text-align: center; margin-top: 10px; font-size: 10px; color: #64748b;">
+    Preparado con dedicación para el 2do Parcial de INF110-Z2 • ¡Mucho éxito en tu examen del 6 de Noviembre!
+  </div>
+
+</body>
+</html>

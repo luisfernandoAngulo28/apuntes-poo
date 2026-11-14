@@ -1,0 +1,66 @@
+=== PAGE 1 ===
+UNIVERSIDAD AUTONOMA GABRIEL RENE MORENO 
+FACULTAD DE CIENCIAS DE LA COMPUTACION 
+INGENIERIA INFORMATICA, SISTEMAS Y REDES 
+MATERIA: INTRODUCCION A LA INFORMATICA ( INF110) 
+ 
+Sem 2-2025 
+ 
+ 
+1 
+Docente: M.Sc.  Ing. Angélica Garzón Cuéllar 
+PRACTICO # 8 
+CADENA DE CARACTERES 
+PROGRAMACION MODULAR: PROCEDIMIENTOS Y FUNCIONES 
+ 
+1. Crear una función que cuente los caracteres de una cadena. 
+2. Diseñar un procedimiento que muestre la primera letra de una cadena. 
+3. Crear una función que retorne la última letra de una cadena. 
+4. Contar cuántas vocales tiene una palabra ingresada. 
+5. Contar cuántas consonantes tiene una palabra. 
+6. Mostrar la cadena en mayúsculas usando una función. 
+7. Mostrar la cadena en minúsculas. 
+8. Invertir una cadena carácter por carácter. 
+9. Concatenar dos cadenas ingresadas por el usuario. 
+10. Calcular cuántas veces aparece una letra específica dentro de una cadena. 
+11. Crear una función que elimine espacios en blanco de una cadena. 
+12. Mostrar solo los n primeros caracteres de una cadena. 
+13. Determinar si una cadena está vacía o contiene texto. 
+14. Mostrar los códigos ASCII de cada carácter de una cadena. 
+15. Contar cuántas letras mayúsculas hay en una cadena. 
+16. Determinar si una cadena es palíndroma (igual al derecho y al revés). 
+17. Contar cuántas palabras hay en una frase. 
+18. Verificar si una palabra se encuentra dentro de una frase. 
+19. Reemplazar todas las apariciones de una letra por otra. 
+20. Eliminar todas las apariciones de una letra dentro de la cadena. 
+21. Contar cuántas veces aparece una palabra en un texto. 
+22. Crear un procedimiento que muestre cada carácter de la cadena en una línea diferente. 
+23. Determinar si una cadena contiene números o solo letras. 
+24. Calcular cuántos dígitos numéricos hay en la cadena. 
+=== PAGE 2 ===
+UNIVERSIDAD AUTONOMA GABRIEL RENE MORENO 
+FACULTAD DE CIENCIAS DE LA COMPUTACION 
+INGENIERIA INFORMATICA, SISTEMAS Y REDES 
+MATERIA: INTRODUCCION A LA INFORMATICA ( INF110) 
+ 
+Sem 2-2025 
+ 
+ 
+2 
+Docente: M.Sc.  Ing. Angélica Garzón Cuéllar 
+25. Extraer la primera palabra de una frase. 
+26. Extraer la última palabra de una frase. 
+27. Convertir una cadena con espacios múltiples a una con un solo espacio entre palabras. 
+28. Mostrar las palabras que empiezan con vocal de una frase. 
+29. Mostrar las palabras que terminan en consonante. 
+30. Intercalar dos cadenas carácter por carácter (por ejemplo, “ABC” y “123” → “A1B2C3”). 
+31. Determinar cuántas palabras con más de 5 letras hay en una oración. 
+32. Reemplazar todas las vocales por el carácter *. 
+33. Crear una función que elimine acentos (á, é, í, ó, ú) de una cadena. 
+34. Mostrar la palabra más larga de una frase. 
+35. Mostrar la palabra más corta de una frase. 
+36. Contar cuántas palabras repetidas hay en un texto. 
+37. Verificar si una cadena solo contiene letras (sin números ni símbolos). 
+38. Generar una nueva cadena con los caracteres únicos (sin repetir). 
+39. Comprobar si dos cadenas son anagramas (contienen las mismas letras en distinto orden). 
+40. Mostrar de la cadena solo los caracteres de índice impar. 

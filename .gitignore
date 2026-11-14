@@ -1,0 +1,26 @@
+# Node / Vite
+node_modules/
+dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Delphi / Free Pascal Compilados
+*.dcu
+*.ppu
+*.o
+*.exe
+*.~*
+*.identcache
+*.stat
+*.dproj.local
+
+# Backups y temporales de Office y Python
+*.bak*
+~$*
+__pycache__/
+*.pyc
+
+# Archivos temporales de sistema
+Thumbs.db
+.DS_Store
