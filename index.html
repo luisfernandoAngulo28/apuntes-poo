@@ -744,6 +744,108 @@
         display: block;
       }
     }
+
+    /* =========================================================================
+       CSS: GAMIFICACIÓN (BOSS BATTLES) Y ANIMADOR DE DÍGITOS
+       ========================================================================= */
+    .hp-bar-container {
+      width: 100%;
+      height: 24px;
+      background: #1e1b4b;
+      border: 2px solid #6366f1;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      margin: 0.8rem 0;
+      box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+    }
+    .hp-bar-fill {
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(90deg, #ef4444 0%, #f59e0b 50%, #10b981 100%);
+      transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .hp-bar-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 0.75rem;
+      font-weight: 900;
+      color: #ffffff;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+      letter-spacing: 0.05em;
+    }
+
+    .boss-card {
+      background: linear-gradient(135deg, #090a16 0%, #17102b 100%);
+      border: 2px solid #8b5cf6;
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 12px 35px rgba(139, 92, 246, 0.25);
+    }
+
+    .digit-box {
+      width: 50px;
+      height: 60px;
+      background: #0f172a;
+      border: 2px solid #38bdf8;
+      border-radius: 8px;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: #ffffff;
+      margin: 0 0.25rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(56, 189, 248, 0.2);
+    }
+    .digit-box.active-pinza {
+      background: rgba(245, 158, 11, 0.25);
+      border-color: #f59e0b;
+      transform: scale(1.15) translateY(-5px);
+      box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4);
+    }
+    .digit-box.cutted {
+      opacity: 0.3;
+      border-color: #ef4444;
+      transform: scale(0.9);
+    }
+
+    /* ESTILOS PARA LA HOJA DE RESCATE IMPRIMIBLE */
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      #seccion-hoja-rescate, #seccion-hoja-rescate * {
+        visibility: visible;
+      }
+      #seccion-hoja-rescate {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        background: #ffffff !important;
+        color: #000000 !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      pre, code {
+        border: 1px solid #ccc !important;
+        background: #f8fafc !important;
+        color: #000 !important;
+        font-size: 8pt !important;
+      }
+    }
 </style>
 
   <!-- KaTeX para renderizado matemático opcional de alta fidelidad -->
@@ -793,7 +895,21 @@
     <!-- CONTENIDO CON SCROLL DEL SIDEBAR -->
     <div class="sidebar-scroll-content" id="sidebarItemList">
       
-      <!-- MOSAICO 1: LA TRILOGÍA DEL EXAMEN FINAL -->
+            <!-- ZONA DE ENTRENAMIENTO Y GAMIFICACIÓN -->
+      <div class="sidebar-category-header">🎮 Entrenamiento & Juegos</div>
+      <a href="#seccion-boss-battle" class="sidebar-nav-item">
+        <span>👾</span> Boss Battle (100 HP)
+        <span class="sidebar-badge" style="background:#ef4444; color:#fff;">JUEGO</span>
+      </a>
+      <a href="#seccion-animador-digitos" class="sidebar-nav-item">
+        <span>🔬</span> Animador Extracción RAM
+        <span class="sidebar-badge" style="background:#0284c7; color:#fff;">INTERACTIVO</span>
+      </a>
+      <a href="#seccion-hoja-rescate" class="sidebar-nav-item">
+        <span>📑</span> Hoja Rescate (15 Min)
+        <span class="sidebar-badge" style="background:#10b981; color:#fff;">PDF</span>
+      </a>
+<!-- MOSAICO 1: LA TRILOGÍA DEL EXAMEN FINAL -->
       <div class="sidebar-category-header">👑 Trilogía Examen Final (100p)</div>
       <a href="#hub-trilogia-examen" class="sidebar-nav-item active">
         <span>👑</span> Cockpit Trilogía 3-en-1
@@ -977,6 +1093,287 @@
     <!-- =========================================================================
          SECCIÓN: MODELOS MENTALES GRÁFICOS (INFOGRAFÍAS VISUALES)
          ========================================================================= -->
+    
+    <!-- =========================================================================
+         1. SIMULADOR BOSS BATTLE: DERROTA AL EXAMEN FINAL (100 HP)
+         ========================================================================= -->
+    <div id="seccion-boss-battle" class="boss-card">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; margin-bottom:1rem;">
+        <div style="display:flex; align-items:center; gap:0.6rem;">
+          <span style="font-size:2rem;">👾</span>
+          <div>
+            <h2 style="color:#ffffff; font-size:1.3rem; margin:0; font-weight:800;">
+              Boss Battle: Derrota al Examen Final (100 HP)
+            </h2>
+            <p style="color:#c084fc; font-size:0.82rem; margin:0.2rem 0 0 0;">
+              Gamificación académica: Ataca cada fase del examen con «Divide y Vencerás» hasta reducir su vida a cero.
+            </p>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:0.6rem;">
+          <label style="color:#94a3b8; font-size:0.8rem; font-weight:700;">Jefe Activo:</label>
+          <select id="bossSelect" onchange="resetBoss()" style="background:#090d1a; color:#fff; border:1px solid #8b5cf6; padding:0.35rem 0.6rem; border-radius:6px; font-size:0.8rem; font-weight:700;">
+            <option value="2024-1-z2">Examen Final 2024-1 Z2 (Garzón)</option>
+            <option value="2024-1-sf">Examen Final 2024-1 SF (Garzón)</option>
+            <option value="2023-2-z2">Examen Final 2023-2 Z2 (Garzón)</option>
+            <option value="2023-1-sf">Examen Final 2023-1 SF (Garzón)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- BARRA DE VIDA DEL JEFE (HP) -->
+      <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.85rem; font-weight:800;">
+        <span style="color:#f87171;" id="bossNameLabel">👑 Jefe: Examen Final 2024-1 Z2</span>
+        <span style="color:#34d399;" id="bossHpNumeric">100 / 100 HP</span>
+      </div>
+      <div class="hp-bar-container" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" id="bossProgressBar">
+        <div class="hp-bar-fill" id="bossHpFill" style="width:100%;"></div>
+        <div class="hp-bar-text" id="bossHpText">VIDA DEL EXAMEN: 100%</div>
+      </div>
+
+      <!-- MENSAJE DE ESTADO DE LA BATALLA -->
+      <div id="bossBattleStatus" style="background:#050813; border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:0.75rem 1rem; margin-bottom:1rem; font-size:0.85rem; color:#cbd5e1; display:flex; align-items:center; gap:0.5rem;">
+        <span>⚔️</span>
+        <span>El examen te desafía con 3 preguntas. Elige un ataque para debilitarlo aplicando Clean Code:</span>
+      </div>
+
+      <!-- PANEL DE ATAQUES (LAS 3 PREGUNTAS DEL EXAMEN) -->
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:1rem;" id="bossAttacksGrid">
+        
+        <!-- ATAQUE 1: SERIES -->
+        <div id="attack-card-1" style="background:#090e1f; border:1px solid #f59e0b; border-radius:10px; padding:1rem; transition:all 0.3s ease;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <strong style="color:#fbbf24; font-size:0.9rem;">⚡ Ataque 1: Serie Numérica</strong>
+            <span style="background:rgba(245,158,11,0.2); color:#fbbf24; font-size:0.7rem; font-weight:800; padding:0.15rem 0.45rem; border-radius:10px;">-30 HP</span>
+          </div>
+          <p style="color:#94a3b8; font-size:0.78rem; line-height:1.5; margin-bottom:0.8rem;">
+            Pregunta: ¿Cómo desglosas S = X + X^1/1! + X^3/3! + X^5/5! con Divide y Vencerás?
+          </p>
+          <button type="button" class="btn btn-primary" onclick="ejecutarAtaque(1, 30)" id="btn-attack-1" style="width:100%; font-size:0.8rem; background:linear-gradient(135deg, #d97706, #b45309); border-color:#f59e0b;">
+            🗡️ Lanzar Ataque Divide & Vencerás (30 pts)
+          </button>
+        </div>
+
+        <!-- ATAQUE 2: NÚMEROS -->
+        <div id="attack-card-2" style="background:#090e1f; border:1px solid #0284c7; border-radius:10px; padding:1rem; transition:all 0.3s ease;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <strong style="color:#38bdf8; font-size:0.9rem;">🔢 Ataque 2: Números Naturales</strong>
+            <span style="background:rgba(56,189,248,0.2); color:#38bdf8; font-size:0.7rem; font-weight:800; padding:0.15rem 0.45rem; border-radius:10px;">-35 HP</span>
+          </div>
+          <p style="color:#94a3b8; font-size:0.78rem; line-height:1.5; margin-bottom:0.8rem;">
+            Pregunta: ¿Cómo eliminas repetidos manteniendo orden con mod 10 y multiplicador?
+          </p>
+          <button type="button" class="btn btn-primary" onclick="ejecutarAtaque(2, 35)" id="btn-attack-2" style="width:100%; font-size:0.8rem;">
+            🗡️ Lanzar Pinza & Multiplicador (35 pts)
+          </button>
+        </div>
+
+        <!-- ATAQUE 3: CADENAS -->
+        <div id="attack-card-3" style="background:#090e1f; border:1px solid #a855f7; border-radius:10px; padding:1rem; transition:all 0.3s ease;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <strong style="color:#c084fc; font-size:0.9rem;">🔤 Ataque 3: Cadenas de Texto</strong>
+            <span style="background:rgba(168,85,247,0.2); color:#c084fc; font-size:0.7rem; font-weight:800; padding:0.15rem 0.45rem; border-radius:10px;">-35 HP</span>
+          </div>
+          <p style="color:#94a3b8; font-size:0.78rem; line-height:1.5; margin-bottom:0.8rem;">
+            Pregunta: ¿Cómo inviertes por mitades calculando tamanoMitad = Longitud div 2?
+          </p>
+          <button type="button" class="btn btn-primary" onclick="ejecutarAtaque(3, 35)" id="btn-attack-3" style="width:100%; font-size:0.8rem; background:linear-gradient(135deg, #9333ea, #7e22ce); border-color:#a855f7;">
+            🗡️ Lanzar Espejo de Subcadenas (35 pts)
+          </button>
+        </div>
+
+      </div>
+
+      <!-- BOTÓN REINICIAR BATALLA -->
+      <div style="text-align:right; margin-top:1rem;">
+        <button type="button" class="btn btn-secondary" onclick="resetBoss()" style="font-size:0.75rem;">
+          🔄 Reiniciar Combate
+        </button>
+      </div>
+    </div>
+
+
+    <!-- =========================================================================
+         2. ANIMADOR INTERACTIVO DE EXTRACCIÓN DE DÍGITOS (EN TIEMPO REAL)
+         ========================================================================= -->
+    <div id="seccion-animador-digitos" class="tema-card" style="border: 2px solid #0284c7; background: linear-gradient(135deg, #070b16 0%, #0d1527 100%); margin-bottom: 2rem;">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.8rem; margin-bottom:1.2rem;">
+        <div style="display:flex; align-items:center; gap:0.6rem;">
+          <span style="font-size:1.8rem;">🔬</span>
+          <div>
+            <h2 style="color:#ffffff; font-size:1.3rem; margin:0; font-weight:800;">
+              Animador de Memoria: Extracción de Dígitos (mod / div)
+            </h2>
+            <p style="color:#38bdf8; font-size:0.82rem; margin:0.2rem 0 0 0;">
+              Observa paso a paso cómo la Pinza (mod 10) y la Sierra (div 10) transforman el número en la memoria RAM.
+            </p>
+          </div>
+        </div>
+        <span style="background:rgba(56,189,248,0.15); border:1px solid #38bdf8; color:#38bdf8; padding:0.25rem 0.65rem; border-radius:20px; font-size:0.75rem; font-weight:800;">
+          Paso a Paso Interactivo
+        </span>
+      </div>
+
+      <!-- PANEL DE CONTROL DEL ANIMADOR -->
+      <div style="background:#040711; border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:1rem; margin-bottom:1.2rem; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+        <div style="display:flex; align-items:center; gap:0.6rem;">
+          <label style="color:#94a3b8; font-size:0.82rem; font-weight:700;">Ingresa un Número:</label>
+          <input type="number" id="inputAnimNumero" value="9876" style="width:110px; background:#0b1120; color:#fff; border:1px solid #334155; padding:0.4rem 0.6rem; border-radius:6px; font-size:0.9rem; font-weight:800; text-align:center;">
+          <button type="button" class="btn btn-primary" onclick="iniciarAnimacionDigitos()" style="font-size:0.8rem;">
+            ▶️ Iniciar Simulación
+          </button>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:0.5rem;">
+          <button type="button" class="btn btn-secondary" onclick="pasoSiguienteAnimacion()" id="btnPasoSiguiente" style="font-size:0.8rem;" disabled>
+            ⏭️ Siguiente Paso
+          </button>
+          <button type="button" class="btn btn-secondary" onclick="resetAnimacionDigitos()" style="font-size:0.8rem;">
+            🔄 Reiniciar
+          </button>
+        </div>
+      </div>
+
+      <!-- ESCENARIO VISUAL DE LA MEMORIA -->
+      <div style="background:#02050c; border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:1.5rem; text-align:center; min-height:160px; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+        
+        <div style="color:#64748b; font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.6rem;">
+          Estado de la Variable en RAM (n):
+        </div>
+
+        <div id="contenedorCajasDigitos" style="display:flex; justify-content:center; align-items:center; margin-bottom:1.2rem;">
+          <!-- Cajas generadas por JS -->
+          <div class="digit-box">9</div>
+          <div class="digit-box">8</div>
+          <div class="digit-box">7</div>
+          <div class="digit-box">6</div>
+        </div>
+
+        <!-- INDICADORES EN TIEMPO REAL -->
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1rem; width:100%; max-width:700px;">
+          <div style="background:#090f1d; border:1px solid #f59e0b; border-radius:8px; padding:0.6rem;">
+            <div style="color:#fbbf24; font-size:0.75rem; font-weight:800;">📌 Dígito Extraído (d := n mod 10):</div>
+            <div id="labelDigitoExtraido" style="color:#fff; font-size:1.3rem; font-weight:900; margin-top:0.2rem;">-</div>
+          </div>
+
+          <div style="background:#090f1d; border:1px solid #ef4444; border-radius:8px; padding:0.6rem;">
+            <div style="color:#f87171; font-size:0.75rem; font-weight:800;">✂️ Queda en n (n := n div 10):</div>
+            <div id="labelNumeroQueda" style="color:#fff; font-size:1.3rem; font-weight:900; margin-top:0.2rem;">-</div>
+          </div>
+
+          <div style="background:#090f1d; border:1px solid #10b981; border-radius:8px; padding:0.6rem;">
+            <div style="color:#34d399; font-size:0.75rem; font-weight:800;">📦 Resultado Acumulado:</div>
+            <div id="labelResultadoAcumulado" style="color:#fff; font-size:1.3rem; font-weight:900; margin-top:0.2rem;">0</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- =========================================================================
+         3. HOJA DE RESCATE IMPRIMIBLE (15 MINUTOS ANTES DEL EXAMEN)
+         ========================================================================= -->
+    <div id="seccion-hoja-rescate" class="tema-card" style="border: 2px solid #10b981; background: #070e17; margin-bottom: 2rem;">
+      <div class="no-print" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.8rem; margin-bottom:1.2rem;">
+        <div style="display:flex; align-items:center; gap:0.6rem;">
+          <span style="font-size:1.8rem;">📑</span>
+          <div>
+            <h2 style="color:#ffffff; font-size:1.3rem; margin:0; font-weight:800;">
+              Hoja de Rescate: «Los 6 Algoritmos Clave» (15 Min Antes del Examen)
+            </h2>
+            <p style="color:#34d399; font-size:0.82rem; margin:0.2rem 0 0 0;">
+              Resumen ultracompacto en Clean Code para repasar antes de entrar al aula o imprimir en PDF.
+            </p>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-primary" onclick="window.print()" style="background:#10b981; border-color:#34d399; font-size:0.82rem;">
+          🖨️ Imprimir / Guardar en PDF (1 Página)
+        </button>
+      </div>
+
+      <!-- CONTENIDO DE LA HOJA DE RESCATE (OPTIMIZADO PARA IMPRESIÓN) -->
+      <div style="background:#050912; border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:1.2rem;">
+        <div style="border-bottom:2px solid #334155; padding-bottom:0.5rem; margin-bottom:1rem; display:flex; justify-content:space-between; align-items:center;">
+          <div>
+            <strong style="color:#fff; font-size:1rem;">UAGRM · FICCT · INF-110 (M.Sc. Ing. Angélica Garzón Cuéllar)</strong>
+            <div style="color:#94a3b8; font-size:0.75rem;">Mnemotécnicas Oficiales y Código Delphi Clean Code</div>
+          </div>
+          <span style="color:#10b981; font-weight:800; font-size:0.85rem;">Examen Final 100/100</span>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:1rem;">
+          
+          <!-- 1. EXTRACCIÓN MOD / DIV -->
+          <div style="border:1px solid #334155; border-radius:6px; padding:0.6rem; background:#080d19;">
+            <strong style="color:#fbbf24; font-size:0.82rem;">1. Descomponer y Procesar Dígitos:</strong>
+            <pre style="margin:0.3rem 0; font-size:0.72rem; color:#e2e8f0; background:#020610; padding:0.4rem; border-radius:4px;">while n &gt; 0 do
+begin
+  d := n mod 10;
+  // Procesar d (ej: if d mod 2 = 0 then c := c + 1)
+  n := n div 10;
+end;</pre>
+          </div>
+
+          <!-- 2. RECONSTRUCCIÓN CON MULTIPLICADOR -->
+          <div style="border:1px solid #334155; border-radius:6px; padding:0.6rem; background:#080d19;">
+            <strong style="color:#38bdf8; font-size:0.82rem;">2. Reconstruir Manteniendo Orden Original:</strong>
+            <pre style="margin:0.3rem 0; font-size:0.72rem; color:#e2e8f0; background:#020610; padding:0.4rem; border-radius:4px;">Resultado := 0; Multiplicador := 1;
+// En cada dígito válido:
+Resultado := Resultado + (d * Multiplicador);
+Multiplicador := Multiplicador * 10;</pre>
+          </div>
+
+          <!-- 3. INVERTIR Y CAPICÚA -->
+          <div style="border:1px solid #334155; border-radius:6px; padding:0.6rem; background:#080d19;">
+            <strong style="color:#34d399; font-size:0.82rem;">3. Invertir Número y Verificar Capicúa:</strong>
+            <pre style="margin:0.3rem 0; font-size:0.72rem; color:#e2e8f0; background:#020610; padding:0.4rem; border-radius:4px;">Invertido := 0;
+while n &gt; 0 do begin
+  Invertido := (Invertido * 10) + (n mod 10);
+  n := n div 10;
+end;
+EsCapicua := (Invertido = ValorOriginal);</pre>
+          </div>
+
+          <!-- 4. ENGRANAJE DE SERIES -->
+          <div style="border:1px solid #334155; border-radius:6px; padding:0.6rem; background:#080d19;">
+            <strong style="color:#f87171; font-size:0.82rem;">4. Los 3 Engranajes de las Series:</strong>
+            <pre style="margin:0.3rem 0; font-size:0.72rem; color:#e2e8f0; background:#020610; padding:0.4rem; border-radius:4px;">Signo := 1; Suma := 0.0;
+for i := 1 to NumeroTerminos do begin
+  // Num := 2*i - 1; Den := Den * 2;
+  Suma := Suma + (Signo * (Num / Den));
+  Signo := -Signo;
+end;</pre>
+          </div>
+
+          <!-- 5. INVERSIÓN POR MITADES -->
+          <div style="border:1px solid #334155; border-radius:6px; padding:0.6rem; background:#080d19;">
+            <strong style="color:#c084fc; font-size:0.82rem;">5. Partición y Mitades de Cadenas:</strong>
+            <pre style="margin:0.3rem 0; font-size:0.72rem; color:#e2e8f0; background:#020610; padding:0.4rem; border-radius:4px;">Mitad := Length(s) div 2;
+m1 := Invertir(Copy(s, 1, Mitad));
+if (Length(s) mod 2 &lt;&gt; 0) then
+  Result := m1 + s[Mitad+1] + Invertir(Copy(s, Mitad+2, Mitad))
+else
+  Result := m1 + Invertir(Copy(s, Mitad+1, Mitad));</pre>
+          </div>
+
+          <!-- 6. CONTEO DE PALABRAS -->
+          <div style="border:1px solid #334155; border-radius:6px; padding:0.6rem; background:#080d19;">
+            <strong style="color:#60a5fa; font-size:0.82rem;">6. Contador de Palabras (Transición):</strong>
+            <pre style="margin:0.3rem 0; font-size:0.72rem; color:#e2e8f0; background:#020610; padding:0.4rem; border-radius:4px;">s := Trim(s); Cant := 0;
+for i := 1 to Length(s) do begin
+  if (s[i] &lt;&gt; ' ') and ((i = 1) or (s[i-1] = ' ')) then
+    Cant := Cant + 1;
+end;</pre>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
     <div id="seccion-modelos-visuales" class="tema-card" style="border: 2px solid #8b5cf6; background: linear-gradient(135deg, #090d19 0%, #111827 100%); margin-bottom: 2rem; box-shadow: 0 10px 30px rgba(139, 92, 246, 0.2);">
       
       <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.8rem; margin-bottom:1.2rem;">
@@ -12261,6 +12658,166 @@ Nadie puede tocar <code>FSaldo</code> directamente. El único camino es invocar 
     // JAVASCRIPT: CONTROL DEL SIDEBAR LATERAL (ESTILO UAGRM CAMPUS)
     // =========================================================================
     
+    
+    // =========================================================================
+    // JAVASCRIPT: BOSS BATTLE (100 HP)
+    // =========================================================================
+    var bossCurrentHp = 100;
+    var bossAttacksUsed = { 1: false, 2: false, 3: false };
+
+    function ejecutarAtaque(ataqueNum, danio) {
+      if (bossAttacksUsed[ataqueNum]) {
+        alert('¡Ya usaste este ataque en este combate! Usa las otras fases para rematarlo.');
+        return;
+      }
+      bossAttacksUsed[ataqueNum] = true;
+      bossCurrentHp = Math.max(0, bossCurrentHp - danio);
+
+      // Deshabilitar botón
+      var btn = document.getElementById('btn-attack-' + ataqueNum);
+      if (btn) {
+        btn.disabled = true;
+        btn.innerText = '✅ ¡Ataque Ejecutado con Éxito!';
+        btn.style.background = '#334155';
+        btn.style.borderColor = '#475569';
+      }
+
+      // Actualizar Barra de HP
+      var fill = document.getElementById('bossHpFill');
+      var text = document.getElementById('bossHpText');
+      var numLabel = document.getElementById('bossHpNumeric');
+      var status = document.getElementById('bossBattleStatus');
+      var bar = document.getElementById('bossProgressBar');
+
+      if (fill) fill.style.width = bossCurrentHp + '%';
+      if (bar) bar.setAttribute('aria-valuenow', bossCurrentHp);
+      if (text) text.innerText = 'VIDA DEL EXAMEN: ' + bossCurrentHp + '%';
+      if (numLabel) numLabel.innerText = bossCurrentHp + ' / 100 HP';
+
+      if (bossCurrentHp <= 0) {
+        if (fill) fill.style.background = '#334155';
+        if (status) {
+          status.style.background = 'rgba(16, 185, 129, 0.2)';
+          status.style.borderColor = '#10b981';
+          status.innerHTML = '<span style="font-size:1.5rem;">🏆</span><strong style="color:#34d399; font-size:1rem;">¡VICTORIA TOTAL! ¡HAS DERROTADO AL EXAMEN FINAL CON 100/100 PUNTOS!</strong>';
+        }
+      } else {
+        if (status) {
+          status.innerHTML = '<span>💥</span><span>¡Impacto crítico! Le quitaste ' + danio + ' HP con Clean Code. Vida restante: ' + bossCurrentHp + ' HP.</span>';
+        }
+      }
+    }
+
+    function resetBoss() {
+      bossCurrentHp = 100;
+      bossAttacksUsed = { 1: false, 2: false, 3: false };
+
+      var fill = document.getElementById('bossHpFill');
+      var text = document.getElementById('bossHpText');
+      var numLabel = document.getElementById('bossHpNumeric');
+      var status = document.getElementById('bossBattleStatus');
+      var bar = document.getElementById('bossProgressBar');
+
+      if (fill) {
+        fill.style.width = '100%';
+        fill.style.background = 'linear-gradient(90deg, #ef4444 0%, #f59e0b 50%, #10b981 100%)';
+      }
+      if (bar) bar.setAttribute('aria-valuenow', 100);
+      if (text) text.innerText = 'VIDA DEL EXAMEN: 100%';
+      if (numLabel) numLabel.innerText = '100 / 100 HP';
+      if (status) {
+        status.style.background = '#050813';
+        status.style.borderColor = 'rgba(255,255,255,0.08)';
+        status.innerHTML = '<span>⚔️</span><span>Combate reiniciado. ¡Elige un ataque para debilitar al Jefe!</span>';
+      }
+
+      for (var i = 1; i <= 3; i++) {
+        var btn = document.getElementById('btn-attack-' + i);
+        if (btn) {
+          btn.disabled = false;
+          if (i === 1) {
+            btn.innerText = '🗡️ Lanzar Ataque Divide & Vencerás (30 pts)';
+            btn.style.background = 'linear-gradient(135deg, #d97706, #b45309)';
+            btn.style.borderColor = '#f59e0b';
+          } else if (i === 2) {
+            btn.innerText = '🗡️ Lanzar Pinza & Multiplicador (35 pts)';
+            btn.style.background = '';
+            btn.style.borderColor = '';
+          } else if (i === 3) {
+            btn.innerText = '🗡️ Lanzar Espejo de Subcadenas (35 pts)';
+            btn.style.background = 'linear-gradient(135deg, #9333ea, #7e22ce)';
+            btn.style.borderColor = '#a855f7';
+          }
+        }
+      }
+    }
+
+
+    // =========================================================================
+    // JAVASCRIPT: ANIMADOR DE EXTRACCIÓN DE DÍGITOS
+    // =========================================================================
+    var animNumeroActual = 0;
+    var animResultadoAcumulado = 0;
+    var animMultiplicador = 1;
+
+    function renderCajasDigitos(num) {
+      var cont = document.getElementById('contenedorCajasDigitos');
+      if (!cont) return;
+      cont.innerHTML = '';
+      var s = String(num);
+      if (num === 0) s = '0';
+      for (var i = 0; i < s.length; i++) {
+        var box = document.createElement('div');
+        box.className = 'digit-box';
+        box.id = 'box-d-' + i;
+        box.innerText = s[i];
+        cont.appendChild(box);
+      }
+    }
+
+    function iniciarAnimacionDigitos() {
+      var val = parseInt(document.getElementById('inputAnimNumero').value);
+      if (isNaN(val) || val <= 0) val = 9876;
+      animNumeroActual = val;
+      animResultadoAcumulado = 0;
+      animMultiplicador = 1;
+
+      renderCajasDigitos(animNumeroActual);
+      document.getElementById('labelDigitoExtraido').innerText = '-';
+      document.getElementById('labelNumeroQueda').innerText = animNumeroActual;
+      document.getElementById('labelResultadoAcumulado').innerText = '0';
+      document.getElementById('btnPasoSiguiente').disabled = false;
+    }
+
+    function pasoSiguienteAnimacion() {
+      if (animNumeroActual <= 0) {
+        document.getElementById('labelDigitoExtraido').innerText = 'FIN';
+        document.getElementById('btnPasoSiguiente').disabled = true;
+        alert('¡El número llegó a 0! Se procesaron todos los dígitos con éxito.');
+        return;
+      }
+
+      var d = animNumeroActual % 10;
+      animNumeroActual = Math.floor(animNumeroActual / 10);
+
+      // Reconstrucción para ilustrar
+      animResultadoAcumulado = (animResultadoAcumulado * 10) + d;
+
+      // Resaltar en interfaz
+      document.getElementById('labelDigitoExtraido').innerText = d;
+      document.getElementById('labelNumeroQueda').innerText = animNumeroActual;
+      document.getElementById('labelResultadoAcumulado').innerText = animResultadoAcumulado;
+
+      renderCajasDigitos(animNumeroActual);
+      if (animNumeroActual <= 0) {
+        document.getElementById('btnPasoSiguiente').disabled = true;
+      }
+    }
+
+    function resetAnimacionDigitos() {
+      iniciarAnimacionDigitos();
+    }
+
     function switchVisualTab(tabId) {
       for (var i = 1; i <= 4; i++) {
         var tabContent = document.getElementById('tab-vis-content-' + i);
